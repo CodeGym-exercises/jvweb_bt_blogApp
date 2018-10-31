@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+    <h1>Wellcome to my blog</h1>
+    <a th:href="@{list}">list post</a>
+    <th:block th:if="${message}">
+        <span th:text="${message}"></span>
+    </th:block>
+    <form th:action="@{/add}" method="post" th:object="${blog}">
+        <input type="text" id="title" th:field="*{title}" placeholder="title"><br>
+        <textarea rows="10" cols="20" th:field="*{content}" placeholder="content"></textarea><br>
+        <input type="submit" value="Add">
+    </form>
+
+</body>
+</html>

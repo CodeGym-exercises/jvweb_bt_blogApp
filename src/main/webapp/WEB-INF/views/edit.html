@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a th:href="@{/list}">back</a><br>
+<th:block th:if="${message}">
+    <span th:text="${message}"></span><br>
+</th:block>
+<form th:action="@{/edit/__${blog.id}__}" method="post" th:object="${blog}">
+    <input type="text" th:field="*{title}" placeholder="${blog.title}"><br>
+    <textarea id="content" cols="30" rows="10" th:field="*{content}" placeholder="*{content}"><br>
+    </textarea>
+    <input type="submit" value="edit"><br>
+</form>
+</body>
+</html>

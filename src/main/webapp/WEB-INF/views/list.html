@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>list</title>
+    <style>
+        table, th, td{
+            border:1px solid #000;
+        }
+    </style>
+</head>
+<body>
+<a th:href="@{/}">back</a>
+<table>
+    <thead>
+    <tr>
+        <th>#</th>
+        <td>title</td>
+        <td>content</td>
+        <td>edit</td>
+        <td>delete</td>
+    </tr>
+    </thead>
+    <tbody>
+        <th:block th:each="blog:${blogs}">
+            <tr>
+                <td th:text="${blog.id}"></td>
+                <td><a th:text="${blog.title}" th:href="@{/view/__${blog.id}__}"></a></td>
+                <td th:text="${blog.content}"></td>
+                <td><a th:href="@{/edit/__${blog.id}__}">edit</a></td>
+                <td><a th:href="@{/delete/__${blog.id}__}">delete</a></td>
+            </tr>
+        </th:block>
+    </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>delete</title>
+</head>
+<body>
+<a th:href="@{/list}">back</a>
+    <h1>Are you sure?? want to delete??</h1>
+<th:block th:if="${message}">
+    <span th:text="${message}"></span><br>
+</th:block>
+<form method="post" th:action="@{/delete/__${blog.id}__}"  th:object="${blog}">
+    <p th:text="*{title}"></p>
+    <p th:text="*{content}"></p>
+    <input type="submit" value="delete">
+</form>
+</body>
+</html>
